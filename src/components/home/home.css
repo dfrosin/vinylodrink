@@ -1,0 +1,19 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 100px;
+    line-height: 122px;
+    color: #F5FDD6;
+}
+img {
+    aspect-ratio: 1;
+    height: 32vh;
+}
