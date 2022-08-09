@@ -1,0 +1,87 @@
+.Vinyl {
+  position: relative;
+  display: flex;
+  margin: 3em 0;
+  height: 15em;
+  aspect-ratio: 1;
+  border: 5px solid black;
+  border-radius: 100%;
+  transition: transform 0.5s;
+}
+.drink {
+  position: absolute;
+  top: 5em;
+  left: 5em;
+  height: 5em;
+  aspect-ratio: 1;
+}
+.Vinyl:hover {
+  transform: scale(1.01);
+  animation: zoomIn 0.5s ease-in 4s;
+}
+.Vinyl:hover > .both-lines {
+  animation: wiggle 0.3s alternate infinite cubic-bezier(0, 0.93, 0.7, 0.55);
+}
+.Vinyl:hover > .drink {
+  animation: rotate 2s linear infinite;
+}
+.both-lines {
+  position: absolute;
+  height: 15em;
+  aspect-ratio: 1;
+  border-radius: 100%;
+}
+.inside-vinyl {
+  height: 7em;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  border: 4em solid rgb(76, 76, 76);
+}
+.line {
+  position: absolute;
+  top: 2.4em;
+  left: 2.4em;
+  height: 10em;
+  aspect-ratio: 1;
+  border: 2px solid white;
+  border-radius: 100%;
+  clip: rect(0em 5em 5em 0em);
+}
+.line2 {
+  position: absolute;
+  height: 12em;
+  top: 1.4em;
+  left: 1.4em;
+  aspect-ratio: 1;
+  border: 2px solid white;
+  border-radius: 100%;
+  clip: rect(0em 6em 6em 0em);
+}
+
+@keyframes rotate {
+  0% {
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transition: transform 2s;
+    transform: scale(1);
+  }
+  100% {
+    transition: transform 2s;
+    transform: rotate(7deg) scale(1.01);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(3000%);
+  }
+}
