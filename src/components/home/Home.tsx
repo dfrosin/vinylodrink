@@ -7,7 +7,8 @@ function Home() {
   return (
     <div className="Home">
       <main>
-        <p>hejhej</p>
+        <h1>Vinyl & Drink</h1>
+        <img src="/src/assets/vinylLogo.svg" alt="vinyldrink logo" />
       </main>
     </div>
   )
