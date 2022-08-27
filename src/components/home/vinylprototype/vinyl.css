@@ -1,29 +1,33 @@
 .Vinyl {
   position: relative;
+  cursor: pointer;
   display: flex;
   margin: 3em 0;
   height: 15em;
   aspect-ratio: 1;
-  border: 5px solid black;
   border-radius: 100%;
   transition: transform 0.5s;
 }
 .drink {
   position: absolute;
-  top: 5em;
-  left: 5em;
-  height: 5em;
+  right: -0.4em;
+  top: -0.6em;
+  height: 5.5em;
   aspect-ratio: 1;
 }
 .Vinyl:hover {
-  transform: scale(1.01);
-  animation: zoomIn 0.5s ease-in 4s;
+  transform: scale(1.05);
 }
-.Vinyl:hover > .both-lines {
-  animation: wiggle 0.3s alternate infinite cubic-bezier(0, 0.93, 0.7, 0.55);
+.clicked > .inside-vinyl {
+  animation: zoomIn 1s ease-in 4s;
 }
-.Vinyl:hover > .drink {
-  animation: rotate 2s linear infinite;
+.clicked .line,
+.clicked .line2 {
+  animation: wiggle 0.3s alternate infinite cubic-bezier(0, 0.93, 0.7, 0.55),
+    zoomIn 1s ease-in 4s;
+}
+.clicked > .vinyl-center {
+  animation: rotate 5s ease-in infinite, fadeOut 0.8s 4.2s;
 }
 .both-lines {
   position: absolute;
@@ -31,11 +35,28 @@
   aspect-ratio: 1;
   border-radius: 100%;
 }
+.both-lines2 {
+  position: absolute;
+  height: 15em;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  transform: rotate(180deg);
+}
 .inside-vinyl {
   height: 7em;
   aspect-ratio: 1;
   border-radius: 100%;
-  border: 4em solid rgb(76, 76, 76);
+  border: 4em solid rgb(19, 19, 19);
+}
+.vinyl-center {
+  position: absolute;
+  border: 4px solid black;
+  border-radius: 100%;
+  background-color: grey;
+  height: calc(5em - 8px);
+  width: calc(5em - 8px);
+  top: 5em;
+  left: 5em;
 }
 .line {
   position: absolute;
@@ -43,7 +64,7 @@
   left: 2.4em;
   height: 10em;
   aspect-ratio: 1;
-  border: 2px solid white;
+  border: 2px solid rgb(200, 200, 200);
   border-radius: 100%;
   clip: rect(0em 5em 5em 0em);
 }
@@ -53,16 +74,25 @@
   top: 1.4em;
   left: 1.4em;
   aspect-ratio: 1;
-  border: 2px solid white;
+  border: 2px solid rgb(200, 200, 200);
   border-radius: 100%;
   clip: rect(0em 6em 6em 0em);
 }
 
 @keyframes rotate {
   0% {
+    transform: rotate(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(1440deg);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -73,7 +103,7 @@
   }
   100% {
     transition: transform 2s;
-    transform: rotate(7deg) scale(1.01);
+    transform: rotate(10deg) scale(1.01);
   }
 }
 
@@ -83,5 +113,6 @@
   }
   100% {
     transform: scale(3000%);
+    opacity: 0;
   }
 }
